@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8-15-min-deployment
+  labels:
+    app: k8-15-min
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8-15-min
+  template:
+    metadata:
+      labels:
+        app: k8-15-min
+    spec:
+      containers:
+        - name: k8-15-min
+          image: khurramhanif/k8-15-min
+          ports:
+          - containerPort: 8080
